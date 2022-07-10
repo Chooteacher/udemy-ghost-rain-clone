@@ -1,0 +1,96 @@
+.title {
+  padding: 20px; /*content(내용)와 border(선)사이의 공간*/
+
+  background-color: black; /*배경색*/
+  color: white; /*텍스트 색*/
+
+  font-size: 80px; /*텍스트 크기*/
+  font-weight: bold; /*텍스트 굵기 bold : 굵은 굵기*/
+  text-align: center; /*텍스트 정렬 방향 center : 중앙 정렬*/
+}
+
+.game-content {
+  width: 800px; /*가로길이*/
+  margin: 0 auto; /*바깥 여백*/
+}
+
+.game-score {
+  display: flex; /*엘리먼트들의 크기나 위치를 쉽게 잡아주는 도구*/
+  justify-content: space-between; /*justify: 메인축 방향으로 정렬
+                                    space-between: 사이(between)에 균일한 간격을 만들어줌*/
+}
+
+.score-number {
+  font-size: 60px; /*텍스트 크기*/
+  font-weight: bold; /*텍스트 굵기 bold : 굵은 굵기*/
+
+  margin: 0; /*바깥 여백*/
+}
+
+#bg {
+  width: 800px; /*가로길이*/
+  height: 500px; /*세로길이*/
+  margin: 200px auto; /*바깥 여백*/
+  background-color: black; /*배경색*/
+  background-image: url(.//images/bg.png); /*background-image: 이미지를 배경으로 사용하게 하는 속성
+                                             url: 이미지의 URL을 입력*/
+}
+
+.heart {
+  margin-top: 10px; /*바깥 여백*/
+  text-align: left; /*텍스트 정렬 방향 left : 왼쪽 정렬*/
+}
+
+.heart img {
+  width: 32px; /*가로길이*/
+}
+
+.score-label {
+  font-size: 30px; /*텍스트 크기*/
+  margin: 0; /*바깥 여백*/
+}
+
+.start-button {
+  width: 100%; /*가로길이*/
+  margin-top: 40px; /*바깥 여백*/
+  padding: 10px; /*content(내용)와 border(선)사이의 공간*/
+
+  font-size: 30px; /*텍스트 크기*/
+
+  background-color: blue; /*배경색*/
+  color: white; /*텍스트 색*/
+}
+
+.flex {
+  display: flex; /*엘리먼트들의 크기나 위치를 쉽게 잡아주는 도구*/
+  justify-content: space-between; /*justify: 메인축 방향으로 정렬
+  space-between: 사이(between)에 균일한 간격을 만들어줌*/
+}
+
+.flex2 {
+  display: flex; /*엘리먼트들의 크기나 위치를 쉽게 잡아주는 도구*/
+  flex-direction: column; /* flex-direction: 플렉스 컨테이너 내의 아이템을 배치할 때 사용할 주축 및 방향을 지정
+  column: 글 여러 줄이 쌓이는 방향대로*/
+  margin-top: 600px; /*바깥 여백*/
+}
+
+#hero {
+  width: 49px; /*가로길이*/
+  height: 57px; /*세로길이*/
+  background: url(./images/hero1.png) no-repeat; /*no-repeat: 이미지가 반복 배열되지 않음 */
+  position: absolute; /*position: 엘리먼트가 브라우저 화면에 어떻게 배치되는지 결정
+  absolute: 브라우저 화면상에서 원하는 위치에 자유롭게 배치, 부모 엘리먼트 위에 겹쳐서도 가능*/
+  display: inline-block;
+}
+
+#hero.stop {
+  background-position: -287px 0px; /*배경 이미지의 위치를 정하는 속성*/
+}
+
+#hero.right {
+  background-position: -287px -113px; /*배경 이미지의 위치를 정하는 속성*/
+}
+
+#hero.left {
+  background-position: -287px -57px; /*배경 이미지의 위치를 정하는 속성*/
+}
