@@ -1,3 +1,7 @@
+const heroElement = document.getElementById("hero");
+// 접근하는 코드 ,변수저장 hero를 가져옴
+console.log(heroElement);
+
 const BG_WIDTH = 800;
 const BG_HEIGHT = 500;
 

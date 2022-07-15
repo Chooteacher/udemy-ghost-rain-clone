@@ -34,6 +34,7 @@
   background-color: black; /*배경색*/
   background-image: url(.//images/bg.png); /*background-image: 이미지를 배경으로 사용하게 하는 속성
                                              url: 이미지의 URL을 입력*/
+  position: relative;
 }
 
 .heart {
@@ -78,9 +79,11 @@
   width: 49px; /*가로길이*/
   height: 57px; /*세로길이*/
   background: url(./images/hero1.png) no-repeat; /*no-repeat: 이미지가 반복 배열되지 않음 */
+  display: inline-block;
   position: absolute; /*position: 엘리먼트가 브라우저 화면에 어떻게 배치되는지 결정
   absolute: 브라우저 화면상에서 원하는 위치에 자유롭게 배치, 부모 엘리먼트 위에 겹쳐서도 가능*/
-  display: inline-block;
+  bottom: 0;
+  left: 45%;
 }
 
 #hero.stop {
