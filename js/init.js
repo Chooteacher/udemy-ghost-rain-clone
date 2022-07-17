@@ -1,4 +1,8 @@
 // 키 이벤트를 발생
+document.addEventListener("keyup", function () {
+  heroElement.className = "stop";
+});
+
 document.addEventListener("keydown", function (e) {
   console.log(e.keyCode);
 
@@ -15,14 +19,27 @@ document.addEventListener("keydown", function (e) {
     heroLeftWithoutPx
   );
 
+  // 용사의 left가 0보다 작아지거나 or 765(BG_WIDTH - BG_HEIGHT)보다 커질 때
+  if (
+    (heroLeftWithoutPx < 0 && e.keyCode === 37) ||
+    (heroLeftWithoutPx > 718 && e.keyCode === 39)
+  ) {
+    // return 함수를 종료
+    return;
+  }
+
   // 왼쪽 37, 오른쪽 39
   if (e.keyCode === 37) {
     // left 0
     heroElement.style.left = heroLeftWithoutPx - 10 + "px";
-    // console.log("용사의 왼쪽 값 -1 => ", heroLeftWithoutPx - 1);
+    heroElement.className = "left";
   } else if (e.keyCode === 39) {
-    heroElement.style.left = heroLeftWithoutPx + 10 + "px";
-    // console.log("용사의 왼쪽 값 +1 => ", heroLeftWithoutPx + 1);
+    heroElement.style.left = heroLeftWithoutPx + 9 + "px";
+    heroElement.className = "right";
+
     // left 720
   }
 });
+
+// width: 49px; 가로길이
+// height: 57px; 세로길이
