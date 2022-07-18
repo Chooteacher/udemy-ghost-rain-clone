@@ -9,27 +9,47 @@ function createGhost() {
   ghostElement.style.height = GHOST_HEIGHT + "px";
   ghostElement.style.background = "url('./images/ghost.png') no-repeat";
 
+  ghostElement.className = "ghost";
+
   bgElement.appendChild(ghostElement);
 
   // 이름이 없이 함수를 전달할 땐 function
   setInterval(function () {
-    // 1. 고스트 요소 접근
-    console.log(ghostElement);
-    // 2. top 가져오기, 숫자 추출, 1+ px
-    let ghostTopNumb = Number(ghostElement.style.top.split("px")[0]) + 15;
+    //  top 가져오기, 숫자 추출, 1+ px
+    let ghostTopNum = Number(ghostElement.style.top.split("px")[0]) + 13;
+    let ghostLeftNum = Number(ghostElement.style.left.split("px")[0]);
+    let heroLeftNum = Number(heroElement.style.left.split("px")[0]);
 
-    if (ghostTopNumb > BG_HEIGHT - GHOST_HEIGHT) {
+    if (ghostTopNum > BG_HEIGHT - (GHOST_HEIGHT + HERO_WIDTH)) {
+      if (
+        ghostLeftNum < heroLeftNum &&
+        heroLeftNum < ghostLeftNum + GHOST_HEIGHT
+      ) {
+        killGhost(ghostElement);
+        return;
+      }
+    }
+
+    if (ghostTopNum > BG_HEIGHT - GHOST_HEIGHT) {
       ghostElement.remove();
       return;
     }
-    ghostElement.style.top = ghostTopNumb + "px";
-    // 4. 다시 할당
+    ghostElement.style.top = ghostTopNum + "px";
+    // 다시 할당
   }, 100);
+}
+
+function killGhost(ghostElement) {
+  ghostElement.classList.add("die");
+  ghostElement.style.backgroundPosition = "-45px";
+  setTimeout(function () {
+    ghostElement.remove();
+  }, 1000);
 }
 
 createGhost();
 
-setInterval(createGhost, 3000);
+setInterval(createGhost, 1000);
 
 function randomRange(min, max) {
   return Math.floor(Math.random() * (max + 1 - min)) + min;
